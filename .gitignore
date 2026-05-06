@@ -1,0 +1,35 @@
+# 環境変数
+.env
+
+# Pythonキャッシュ
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 仮想環境
+venv/
+env/
+ENV/
+
+# IDEファイル
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS固有
+.DS_Store
+Thumbs.db
+
+# Excelファイル（バックアップ以外）
+*.xlsx
+!LINK_工数表_*.xlsx
+
+# ログファイル
+*.log
+
+# その他
+.pytest_cache/
+.coverage
+htmlcov/
