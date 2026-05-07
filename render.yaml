@@ -4,12 +4,16 @@ services:
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn line_to_excel_bot:app
+
     envVars:
       - key: LINE_CHANNEL_ACCESS_TOKEN
         sync: false
+
       - key: LINE_CHANNEL_SECRET
         sync: false
+
       - key: EXCEL_FILE_PATH
         value: ./LINK_工数表_5月分.xlsx
+
       - key: PYTHON_VERSION
         value: 3.11.7
