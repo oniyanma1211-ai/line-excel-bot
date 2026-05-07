@@ -191,7 +191,6 @@ excel_updater = ExcelUpdater(EXCEL_FILE)
 
 
 @app.route("https://line-excel-bot.onrender.com/callback", methods=['POST'])
-def callback():
     """LINEからのWebhookを受信"""
     signature = request.headers.get('X-Line-Signature', '')
     body = request.get_data(as_text=True)
