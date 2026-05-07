@@ -190,7 +190,7 @@ parser = DailyReportParser()
 excel_updater = ExcelUpdater(EXCEL_FILE)
 
 
-@app.route("/callback", methods=['POST'])
+@app.route("https://line-excel-bot.onrender.com/callback", methods=['POST'])
 def callback():
     """LINEからのWebhookを受信"""
     signature = request.headers.get('X-Line-Signature', '')
