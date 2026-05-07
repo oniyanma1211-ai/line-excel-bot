@@ -31,7 +31,7 @@ app = Flask(__name__)
 # LINE API設定
 CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', 'YOUR_CHANNEL_ACCESS_TOKEN')
 CHANNEL_SECRET = os.getenv('LINE_CHANNEL_SECRET', 'YOUR_CHANNEL_SECRET')
-
+は
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
 
@@ -191,19 +191,21 @@ excel_updater = ExcelUpdater(EXCEL_FILE)
 
 
 @app.route("/callback", methods=['POST'])
+def callback():
     """LINEからのWebhookを受信"""
-    signature = request.headers.get('X-Line-Signature', '')
+    signature = request.headers.get('X-Line-Signature')
     body = request.get_data(as_text=True)
-    
-    logger.info(f"Webhook受信: signature={signature[:10]}...")
-    
+
+    logger.info(f"Webhook受信: signature={signature}")
+
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         logger.error("Invalid signature")
         abort(400)
-    
+
     return 'OK'
+
 
 
 @handler.add(MessageEvent, message=TextMessage)
